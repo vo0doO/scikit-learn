@@ -3,15 +3,15 @@ To run this, you'll need to have installed.
 
   * scikit-learn
 
-Does two benchmarks
+Выполняет две контрольные показатели
 
-First, we fix a training set, increase the number of
-samples to classify and plot number of classified samples as a
-function of time.
+Во-первых, мы фиксируем тренировочный набор, увеличиваем количество
+образцы для классификации и построения номера классифицированных образцов как a -
+функция времени.
 
-In the second benchmark, we increase the number of dimensions of the
-training set, classify a sample and plot the time taken as a function
-of the number of dimensions.
+Во втором бенчмарке мы увеличиваем количество измерений
+обучающий набор, классифицировать образец и построить график времени, взятого в качестве функции
+из числа измерений.
 """
 import numpy as np
 import matplotlib.pyplot as plt
