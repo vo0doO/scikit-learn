@@ -3,14 +3,14 @@
 Libsvm GUI
 ==========
 
-A simple graphical frontend for Libsvm mainly intended for didactic
-purposes. You can create data points by point and click and visualize
-the decision region induced by different kernels and parameter settings.
+Простой графический интерфейс для Libsvm в основном предназначен для дидактических целей
+цели. Вы можете создать точки данных и визуализировать
+область принятия решения индуцируется различными ядрами и настройками параметров.
 
-To create positive examples click the left mouse button; to create
-negative examples click the right button.
+Для создания положительных примеров нажмите левую кнопку мыши; для создания
+отрицательные примеры нажмите правую кнопку.
 
-If all examples are from the same class, it uses a one-class SVM.
+Если все примеры из одного класса, он использует один класс СВМ.
 
 """
 
@@ -40,9 +40,9 @@ x_min, x_max = -50, 50
 
 
 class Model:
-    """The Model which hold the data. It implements the
-    observable in the observer pattern and notifies the
-    registered observers on change event.
+    """Модель, которая содержит данные. Он реализует
+    наблюдаемый в шаблоне наблюдателя и уведомляет
+    зарегистрированные наблюдатели на событии изменения.
     """
 
     def __init__(self):
@@ -53,7 +53,7 @@ class Model:
         self.surface_type = 0
 
     def changed(self, event):
-        """Notify the observers. """
+        """Уведомить наблюдателей. """
         for observer in self.observers:
             observer.update(event, self)
 
@@ -76,7 +76,7 @@ class Controller:
         self.model = model
         self.kernel = Tk.IntVar()
         self.surface_type = Tk.IntVar()
-        # Whether or not a model has been fitted
+        # Была ли установлена модель или нет
         self.fitted = False
 
     def fit(self):
@@ -125,7 +125,8 @@ class Controller:
         self.model.data.append((x, y, label))
         self.model.changed("example_added")
 
-        # update decision surface if already fitted.
+        # SIGN IN
+.
         self.refit()
 
     def refit(self):
@@ -214,9 +215,9 @@ class View:
             self.contours = []
 
     def plot_support_vectors(self, support_vectors):
-        """Plot the support vectors by placing circles over the
-        corresponding data points and adds the circle collection
-        to the contours list."""
+        """Постройте опорные векторы, поместив окружности поверх
+        соответствующие точки данных и добавляет коллекцию круг
+        к списку контуров."""
         cs = self.ax.scatter(support_vectors[:, 0], support_vectors[:, 1],
                              s=80, edgecolors="k", facecolors="none")
         self.contours.append(cs)
